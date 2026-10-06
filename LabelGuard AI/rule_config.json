@@ -1,0 +1,68 @@
+{
+  "jurisdiction": "India",
+  "instrument": "Legal Metrology (Packaged Commodities) Rules, 2011",
+  "version_note": "Prototype reference only. The current consolidated Rules and amendments, applicability, exemptions, and product-specific requirements must be verified by a qualified legal/metrology professional before operational use.",
+  "extraction_metadata": [
+    {"id": "product_name", "description": "Visible product name, if any; do not infer."},
+    {"id": "is_imported", "description": "Whether the visible label establishes that the commodity is imported; true, false, or null if uncertain."}
+  ],
+  "fields": [
+    {
+      "id": "manufacturer_packer_importer",
+      "label": "Manufacturer / packer / importer name and address",
+      "rule_id": "LMPC Rule 6(1)(a)",
+      "description": "The package must declare the name and address of the manufacturer and, where applicable, the packer and importer as required by the Rules.",
+      "required": true,
+      "severity": "high"
+    },
+    {
+      "id": "generic_name",
+      "label": "Common or generic name",
+      "rule_id": "LMPC Rule 6(1)(b)",
+      "description": "The package must state the common or generic name of the commodity.",
+      "required": true,
+      "severity": "high"
+    },
+    {
+      "id": "net_quantity",
+      "label": "Net quantity",
+      "rule_id": "LMPC Rule 6(1)(c)",
+      "description": "The package must declare net quantity in the prescribed standard unit or number, as applicable.",
+      "required": true,
+      "severity": "high"
+    },
+    {
+      "id": "month_year",
+      "label": "Month and year of manufacture / pre-packing / import",
+      "rule_id": "LMPC Rule 6(1)(d)",
+      "description": "The package must declare the applicable month and year of manufacture, pre-packing, or import, subject to the Rules and applicable exemptions.",
+      "required": true,
+      "severity": "medium"
+    },
+    {
+      "id": "mrp",
+      "label": "Retail sale price (MRP)",
+      "rule_id": "LMPC Rule 6(1)(e)",
+      "description": "The package must declare the retail sale price inclusive of all taxes in the prescribed manner.",
+      "required": true,
+      "severity": "high"
+    },
+    {
+      "id": "consumer_care",
+      "label": "Consumer care contact details",
+      "rule_id": "LMPC Rule 6(2)",
+      "description": "The package must display the prescribed consumer-care contact details for complaints, subject to the current Rules and applicable requirements.",
+      "required": true,
+      "severity": "medium"
+    },
+    {
+      "id": "country_of_origin",
+      "label": "Country of origin (imported packages)",
+      "rule_id": "LMPC Rule 6(8)",
+      "description": "An imported package must declare the country of origin or manufacture or assembly, as applicable under the Rules.",
+      "required": false,
+      "conditional": "Only assess when the label indicates the commodity is imported.",
+      "severity": "medium"
+    }
+  ]
+}

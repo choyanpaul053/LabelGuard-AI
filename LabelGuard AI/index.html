@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0A0A0F" />
+  <meta name="description" content="A prototype packaged-label declaration review tool." />
+  <title>LabelGuard AI — Packaged label review</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="LabelGuard AI home"><span class="brand-shield">◈</span><span>LabelGuard<span class="brand-accent">AI</span></span></a>
+    <div class="topbar-right"><span class="prototype-pill"><i></i> PROTOTYPE</span><button class="role-switch" id="role-switch" type="button">Switch role</button><button class="icon-btn" id="logout-btn" type="button" aria-label="Log out" hidden>↪</button></div>
+  </header>
+  <main id="app" class="app-container" aria-live="polite">
+    <section class="landing-page" id="landing-page">
+      <div class="hero-copy"><div class="eyebrow"><span class="eyebrow-line"></span> PACKAGED GOODS · INDIA</div><h1>One photo.<br/><span>A clearer label.</span></h1><p>Manual packaged-label checks can be inconsistent and leave no digital record. LabelGuard extracts visible declarations, checks them against a rule-based checklist, and sends uncertain scans to a human inspector—not a guessed verdict.</p><div class="hero-assurance"><span>⌁</span> Extraction is automated. Compliance checks are deterministic.</div></div>
+      <div class="role-cards"><button class="role-card consumer-role" data-role="consumer"><span class="role-icon">⌕</span><span class="role-card-tag">NO ACCOUNT NEEDED</span><strong>I'm a consumer</strong><span>Scan a package label and see the declaration checklist.</span><b>Start a scan <i>↗</i></b></button><button class="role-card inspector-role" data-role="inspector"><span class="role-icon">⬡</span><span class="role-card-tag">RESTRICTED ACCESS</span><strong>I'm an inspector</strong><span>Review flagged scans, compliance trends, and evidence reports.</span><b>Inspector login <i>↗</i></b></button></div>
+      <footer class="landing-footer">LabelGuard AI <span>·</span> Prototype only — not a legal opinion or enforcement tool.</footer>
+    </section>
+
+    <section class="workspace" id="consumer-workspace" hidden>
+      <aside class="side-nav"><div class="side-label">CONSUMER</div><button class="nav-item selected" data-consumer-view="scan"><span>⌕</span> New scan</button><button class="nav-item" data-consumer-view="history"><span>◷</span> My scan history</button><div class="side-foot"><span class="mini-shield">◈</span><p>Your scans are tied to a random browser-session ID. No account or cross-device sync.</p></div></aside>
+      <section class="view-panel" id="consumer-panel"></section>
+    </section>
+
+    <section class="workspace" id="inspector-workspace" hidden>
+      <aside class="side-nav"><div class="side-label">INSPECTOR CONSOLE</div><button class="nav-item selected" data-inspector-view="dashboard"><span>▦</span> Dashboard</button><button class="nav-item" data-inspector-view="queue"><span>◷</span> Review queue <i class="queue-count" id="queue-count">0</i></button><div class="side-foot"><span class="mini-shield">◈</span><p>Inspector decisions are stored with scan evidence and review notes.</p></div></aside>
+      <section class="view-panel" id="inspector-panel"></section>
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="modal-backdrop" id="login-modal" hidden><section class="login-card" role="dialog" aria-modal="true" aria-labelledby="login-title"><button class="modal-close" id="login-close" aria-label="Close login">×</button><div class="login-icon">⬡</div><div class="eyebrow">RESTRICTED ACCESS</div><h2 id="login-title">Inspector login</h2><p>Sign in to access the review console and evidence reports.</p><form id="login-form"><label for="username">Username</label><input id="username" name="username" autocomplete="username" required /><label for="password">Password</label><input id="password" name="password" type="password" autocomplete="current-password" required /><div class="form-error" id="login-error" role="alert"></div><button class="primary-btn full-width" type="submit">Continue <span>→</span></button></form><div class="demo-hint" id="demo-hint" hidden>Local demo credentials are configured in the README. Change them before deployment.</div></section></div>
+</body>
+</html>

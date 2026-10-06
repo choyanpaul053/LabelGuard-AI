@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: labelguard-ai
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn backend:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_PATH
+        value: /var/data/labelguard.sqlite3
+      - key: UPLOAD_DIR
+        value: /var/data/uploads
+      - key: ENVIRONMENT
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: INSPECTOR_USERNAME
+        sync: false
+      - key: INSPECTOR_PASSWORD_HASH
+        sync: false
+    disk:
+      name: labelguard-data
+      mountPath: /var/data
+      sizeGB: 1
